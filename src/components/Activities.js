@@ -9,9 +9,7 @@ import Activity from './Activity';
 function Activities() {
   return (
     <div>
-      <Activity />
-      <Activity />
-      <Activity />
+
     </div>
   );
 }
