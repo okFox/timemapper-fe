@@ -1,0 +1,8 @@
+.block {
+  height: 600px;
+  width: 300px;
+  display: flexbox;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}

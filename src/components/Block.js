@@ -1,5 +1,6 @@
 import React from 'react';
 import Activity from './Activity';
+import styles from './Block.css';
 
 const block = {
   userId: 'user1',
@@ -44,7 +45,7 @@ function Block() {
   //   return `{ height: ${num}px} `;
   // };
   return (
-    <div>
+    <div className={styles.block}>
       {block.activities.map((activity) => <Activity key={activity.activityId} name={activity.activityName} description={activity.description}  />)}
     </div>
   );
