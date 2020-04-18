@@ -1,8 +1,24 @@
 .block {
-  height: 600px;
+  height: 1000px;
   width: 300px;
-  display: flexbox;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
+  display: inline-flexbox;
+  text-align:center;
+  overflow: hidden;
+  margin: auto;
+  justify-content: start;
+
+
+    h1 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+    time {
+      font-weight: bold;
+      font-size: 1rem;
+      padding-bottom: 5px;
+    }
+
 }
