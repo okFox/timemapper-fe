@@ -8,13 +8,14 @@ function Activity(props) {
   let actStyle = {
     backgroundColor: props.color,
     height: props.height + '%'
+
   };
 
   return (
     <div className={styles.activity} style={actStyle}>
-      <h1>{props.name}</h1>
+      <span><h1>{props.name}</h1><time>{props.duration} minutes</time></span>
       <p>{props.description}</p>
-      <time>{props.duration} minutes</time>
+      
     </div>
   );
 }
