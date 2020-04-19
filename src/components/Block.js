@@ -52,7 +52,7 @@ function Block() {
     <div className={styles.blockContainer}>
       <h1>{blockState.blockName}</h1>
       <div className={styles.block}>
-        {activitiesState.activities.map((activity) => <Activity key={activity.activityId} name={activity.activityName} description={activity.description} duration={activity.duration * blockState.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
+        {activitiesState.activities.map((activity) => <Activity key={activity.activityName} name={activity.activityName} description={activity.description} duration={activity.duration * blockState.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
       </div>
     </div>
   );
