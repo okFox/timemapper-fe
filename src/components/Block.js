@@ -1,22 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Activity from './Activity';
 import styles from './Block.css';
 
+const blockData = {
 
-function Block(props) {
-  const block = props.blockState;
+  userId: 'user1',
+  blockName: 'Learn Japanese',
+  timeUnitInMin: 15
 
-  const currentActivities = props.activitiesState;
-  // console.log(currentActivities + ' block');
-  
+};
+
+
+const someActivities = {
+  activities: [
+    {
+      activityID: 100,
+      activityName: 'Wani Kani',
+      duration: 3,
+      color: 'rgba(255, 0, 0, 0.2)',
+      description: 'Complete Wani Kani levels.',
+      position: {
+        x: '', // or start end using the timeUnits
+        y: ''
+      } },
+    {
+      activityID: 200,
+      activityName: 'Glossika',
+      duration: 2,
+      color: 'rgba(0, 255, 0, 0.3)',
+      description: 'Listen to Glossika sentences',
+      position: {
+        x: '', // or start end using the timeUnits
+        y: ''
+      } },
+    {
+      activityID: 300,
+      activityName: 'Kanji',
+      duration: 1,
+      color: 'rgba(0, 0, 255, 0.3)',
+      description: 'Practice writing basic 100',
+      position: {
+        x: '', // or start end using the timeUnits
+        y: ''
+      } }
+  ]
+};
+
+function Block() {
+  const [blockState, setBlockState] = useState(blockData);
+  const [activitiesState, setActivitiesState] = useState(someActivities);
 
   return (
     <div className={styles.blockContainer}>
-      <h1>{block.blockName}</h1>
+      <h1>{blockState.blockName}</h1>
 
       <div className={styles.block}>
-        {currentActivities.map((activity) => 
-          <Activity activity={props.activity} key={activity.activityId}  name={activity.activityName} description={activity.description} duration={activity.duration * block.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
+        {activitiesState.activities.map((activity) => 
+          <Activity activity={activity} key={activity.activityId}  name={activity.activityName} description={activity.description} duration={activity.duration * blockState.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
       </div>
 
     </div>
