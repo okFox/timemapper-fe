@@ -3,12 +3,15 @@ import ActivityForm from './ActivityForm';
 import Activity from './Activity';
 import styles from './TimemapperApp.css';
 import blockStyles from './Block.css';
+import Activities from './Activities';
 
 const blockData = {
 
   userId: 'user1',
   blockName: 'Learn Japanese',
-  timeUnitInMin: 15
+  timeUnitInMin: 15,
+  hours: 2,
+  totalMin: 120
 
 };
 
@@ -47,13 +50,15 @@ const someActivities = {
   ]
 };
 
+
+
+
 function TimemapperApp() {
   const [blockState, setBlockState] = useState(blockData);
   const [activitiesState, setActivitiesState] = useState(someActivities);
 
   const handleActivityFormSubmit = (event) => {
     event.preventDefault();
-
     const formData = new FormData(event.target);
 
     const newActivity = {
@@ -74,10 +79,11 @@ function TimemapperApp() {
       body: JSON.stringify(newActivity)
     })
       .then(res => res.json());
-      // .then(() => {
-      //   window.locatation.reload();
-      // });
+
+    //now fetch entire activities array, set to state,  and render to activities list
+
   };
+
 
   return (
     <div className={styles.grid}>
@@ -86,7 +92,7 @@ function TimemapperApp() {
       </section>
 
       <section className={styles.activityListBox}>
-          LIST OF ACTIVITIES
+        <Activities activitiesState={activitiesState} setActivitiesState={setActivitiesState}/>
       </section>
 
       <section className={blockStyles.blockContainer}>

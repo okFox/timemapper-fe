@@ -15,8 +15,9 @@ const activityForm = (props) => {
         <label>Description:</label>
         <input type='textarea' name='description' id='actdesc'></input>
 
-        <label htmlFor="dur">Duration in minutes:</label>
+        <label>Duration in minutes:</label>
         <input type='number' id="dur" name='duration' min="0" max='120' step='15'></input>
+        <label>Color:</label>
 
         <button id='submit' value='submit'>Create Activity</button>
       </form>
