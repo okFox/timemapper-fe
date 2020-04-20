@@ -53,7 +53,30 @@ function TimemapperApp() {
 
   const handleActivityFormSubmit = (event) => {
     event.preventDefault();
-    console.log('wired up!');
+
+    const formData = new FormData(event.target);
+
+    const newActivity = {
+      activityName: formData.get('activityName'),
+      duration: formData.get('duration'),
+      color: 'rgba(255, 0, 0, 0.2)',
+      description: formData.get('description'),
+      position: {
+        x: 5,
+        y: 10
+      } };
+
+    fetch('/api/v1/activities', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newActivity)
+    })
+      .then(res => res.json());
+      // .then(() => {
+      //   window.locatation.reload();
+      // });
   };
 
   return (
