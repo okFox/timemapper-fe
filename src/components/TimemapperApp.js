@@ -51,10 +51,15 @@ function TimemapperApp() {
   const [blockState, setBlockState] = useState(blockData);
   const [activitiesState, setActivitiesState] = useState(someActivities);
 
+  const handleActivityFormSubmit = (event) => {
+    event.preventDefault();
+    console.log('wired up!');
+  };
+
   return (
     <div className={styles.grid}>
       <section className={styles.formBox}>
-        <ActivityForm />
+        <ActivityForm handleActivityFormSubmit={handleActivityFormSubmit}/>
       </section>
 
       <section className={styles.activityListBox}>
