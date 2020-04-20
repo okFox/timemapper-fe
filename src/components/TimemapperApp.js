@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import ActivityForm from './ActivityForm';
 import Activity from './Activity';
-import styles from './Block.css';
+import styles from './TimemapperApp.css';
+import blockStyles from './Block.css';
 
 const blockData = {
 
@@ -9,7 +11,6 @@ const blockData = {
   timeUnitInMin: 15
 
 };
-
 
 const someActivities = {
   activities: [
@@ -46,21 +47,33 @@ const someActivities = {
   ]
 };
 
-function Block() {
+function TimemapperApp() {
   const [blockState, setBlockState] = useState(blockData);
   const [activitiesState, setActivitiesState] = useState(someActivities);
 
   return (
-    <div className={styles.blockContainer}>
-      <h1>{blockState.blockName}</h1>
+    <div className={styles.grid}>
+      <section className={styles.formBox}>
+        <ActivityForm />
+      </section>
 
-      <div className={styles.block}>
-        {activitiesState.activities.map((activity) => 
-          <Activity activity={activity} key={activity.activityId}  name={activity.activityName} description={activity.description} duration={activity.duration * blockState.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
-      </div>
+      <section className={styles.activityListBox}>
+          LIST OF ACTIVITIES
+      </section>
 
+      <section className={blockStyles.blockContainer}>
+        <h1>{blockState.blockName}</h1>
+        <div className={blockStyles.block}>
+          {activitiesState.activities.map((activity) => 
+            <Activity activity={activity} key={activity.activityId}  name={activity.activityName} description={activity.description} duration={activity.duration * blockState.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
+        </div>
+      </section>
+
+      <section className={styles.blockListBox}>
+            LIST OF BLOCKS
+      </section>
     </div>
   );
 }
 
-export default Block;
+export default TimemapperApp;
