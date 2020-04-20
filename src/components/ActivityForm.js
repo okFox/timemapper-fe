@@ -4,11 +4,6 @@ import styles from './Activity.css';
 
 const activityForm = () => {
 
-  // const handleInputChange = (event) => {
-  //   let target = event.target;
-
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);

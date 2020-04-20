@@ -1,17 +1,18 @@
+
+
 import React from 'react';
-// import Activities from './Activities';
-import Block from './Block';
-import ActivityForm from './ActivityForm';
+import TimemapperApp from './TimemapperApp';
+
 import './App.css';
 
+
 export default function App() {
+
+  
   return (
     <>
-      <ActivityForm />
-      <Block />
+
+      <TimemapperApp />
     </>
   );
 }
-
-//activity list
-//block list
