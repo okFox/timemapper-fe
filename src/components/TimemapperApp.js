@@ -51,10 +51,38 @@ function TimemapperApp() {
   const [blockState, setBlockState] = useState(blockData);
   const [activitiesState, setActivitiesState] = useState(someActivities);
 
+  const handleActivityFormSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    const newActivity = {
+      activityName: formData.get('activityName'),
+      duration: formData.get('duration'),
+      color: 'rgba(255, 0, 0, 0.2)',
+      description: formData.get('description'),
+      position: {
+        x: 5,
+        y: 10
+      } };
+
+    fetch('/api/v1/activities', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newActivity)
+    })
+      .then(res => res.json());
+      // .then(() => {
+      //   window.locatation.reload();
+      // });
+  };
+
   return (
     <div className={styles.grid}>
       <section className={styles.formBox}>
-        <ActivityForm />
+        <ActivityForm handleActivityFormSubmit={handleActivityFormSubmit}/>
       </section>
 
       <section className={styles.activityListBox}>

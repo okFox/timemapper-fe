@@ -2,16 +2,11 @@ import React, { useState } from 'react';
 import styles from './Activity.css';
 
 
-const activityForm = () => {
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
-  };
+const activityForm = (props) => {
 
   return (
     <div className={styles.form}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={props.handleActivityFormSubmit}>
         <h1>Add a New Activity</h1>
 
         <label> Activity Name:</label>
