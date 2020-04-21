@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ColorPicker from './ColorPicker';
 import styles from './Activity.css';
 
 
@@ -18,7 +19,7 @@ const activityForm = (props) => {
         <label>Duration in minutes:</label>
         <input type='number' id="dur" name='duration' min="0" max='120' step='15'></input>
         <label>Color:</label>
-
+        {<ColorPicker />}
         <button id='submit' value='submit'>Create Activity</button>
       </form>
     </div>
