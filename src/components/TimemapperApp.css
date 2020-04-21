@@ -1,11 +1,28 @@
 .grid {
+width: 80%;
+display: flex;
+flex-direction: row;
+margin: auto;
 
+
+p {
+  color: black;
+  text-align: center;
+  padding: 2px;
+}
 
   .formbox {
+    display: flex;
+    
+  }
+
+  .activityListBox {
 
   }
 
   .blockListBox {
+    border-radius: 5px;
 
   }
+
 }

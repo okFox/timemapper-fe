@@ -5,7 +5,31 @@
 
 }
 
-.form input{
+label {
+padding: 10px;
+text-align: center;
+}
+
+input {
+  width: fit-content;
+  margin: auto;
+  padding-bottom: 5px;
+  border-radius: 2px;
+  text-align: center;
+}
+form {
   display: flex;
-  margin: 5px;
+  flex-direction: column;
+  margin: auto;
+  border: 1px solid rgb(23, 23, 23);
+  box-shadow: 3px 5px 3px  rgb(71, 71, 71);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+button {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  border-radius: 3px;
 }
