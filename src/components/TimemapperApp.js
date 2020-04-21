@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ActivityForm from './ActivityForm';
 import Activity from './Activity';
 import styles from './TimemapperApp.css';
 import blockStyles from './Block.css';
-import Activities from './Activities';
+import MiniActivity from './MiniActivity';
 
 const blockData = {
 
@@ -15,47 +15,19 @@ const blockData = {
 
 };
 
-const someActivities = {
-  activities: [
-    {
-      activityID: 100,
-      activityName: 'Wani Kani',
-      duration: 3,
-      color: 'rgba(255, 0, 0, 0.2)',
-      description: 'Complete Wani Kani levels.',
-      position: {
-        x: '', // or start end using the timeUnits
-        y: ''
-      } },
-    {
-      activityID: 200,
-      activityName: 'Glossika',
-      duration: 2,
-      color: 'rgba(0, 255, 0, 0.3)',
-      description: 'Listen to Glossika sentences',
-      position: {
-        x: '', // or start end using the timeUnits
-        y: ''
-      } },
-    {
-      activityID: 300,
-      activityName: 'Kanji',
-      duration: 1,
-      color: 'rgba(0, 0, 255, 0.3)',
-      description: 'Practice writing basic 100',
-      position: {
-        x: '', // or start end using the timeUnits
-        y: ''
-      } }
-  ]
-};
-
-
-
 
 function TimemapperApp() {
   const [blockState, setBlockState] = useState(blockData);
-  const [activitiesState, setActivitiesState] = useState(someActivities);
+  const [activitiesState, setActivitiesState] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:7890/api/v1/activities')
+      .then(res => res.json())
+      // .then(res => res.text())
+      .then(res => setActivitiesState(res));
+  },);
+
+
 
   const handleActivityFormSubmit = (event) => {
     event.preventDefault();
@@ -71,17 +43,16 @@ function TimemapperApp() {
         y: 10
       } };
 
-    fetch('/api/v1/activities', {
+    fetch('http://localhost:7890/api/v1/activities', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newActivity)
     })
-      .then(res => res.json());
-
+      .then(res => res.json())
+      .then(console.log('activity added'));
     //now fetch entire activities array, set to state,  and render to activities list
-
   };
 
 
@@ -92,14 +63,17 @@ function TimemapperApp() {
       </section>
 
       <section className={styles.activityListBox}>
-        <Activities activitiesState={activitiesState} setActivitiesState={setActivitiesState}/>
+        <h1>All Activities:</h1>
+        {activitiesState.map((blurb) => 
+          <MiniActivity key={blurb._id} name={blurb.activityName} color={blurb.color}/>)}
+
       </section>
 
       <section className={blockStyles.blockContainer}>
         <h1>{blockState.blockName}</h1>
         <div className={blockStyles.block}>
-          {activitiesState.activities.map((activity) => 
-            <Activity activity={activity} key={activity.activityId}  name={activity.activityName} description={activity.description} duration={activity.duration * blockState.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
+          {activitiesState.map((activity) => 
+            <Activity activity={activity} key={activity._id}  name={activity.activityName} description={activity.description} duration={activity.duration * blockState.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
         </div>
       </section>
 
