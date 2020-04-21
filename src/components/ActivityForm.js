@@ -7,9 +7,9 @@ const activityForm = (props) => {
 
   return (
     <div className={styles.form}>
+      <h1>Add a New Activity</h1>
       <form onSubmit={props.handleActivityFormSubmit}>
-        <h1>Add a New Activity</h1>
-
+        
         <label> Activity Name:</label>
         <input type='text' name='activityName' id='actname' placeholder='eg. Learn Piano'></input>
 

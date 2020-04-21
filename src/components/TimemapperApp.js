@@ -58,17 +58,17 @@ function TimemapperApp() {
 
   return (
     <div className={styles.grid}>
-      <section className={styles.formBox}>
-        <ActivityForm handleActivityFormSubmit={handleActivityFormSubmit}/>
-      </section>
+      <div>
+        <section className={styles.formBox}>
+          <ActivityForm handleActivityFormSubmit={handleActivityFormSubmit}/>
+        </section>
 
-      <section className={styles.activityListBox}>
-        <h1>All Activities:</h1>
-        {activitiesState.map((blurb) => 
-          <MiniActivity key={blurb._id} name={blurb.activityName} color={blurb.color}/>)}
-
-      </section>
-
+        <section className={styles.activityListBox}>
+          <h1>All Activities:</h1>
+          {activitiesState.map((blurb) => 
+            <MiniActivity key={blurb._id} name={blurb.activityName} color={blurb.color}/>)}
+        </section>
+      </div>
       <section className={blockStyles.blockContainer}>
         <h1>{blockState.blockName}</h1>
         <div className={blockStyles.block}>
