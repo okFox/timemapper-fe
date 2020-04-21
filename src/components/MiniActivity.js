@@ -1,11 +1,12 @@
 import React from 'react';
 
 const miniActivity = (props) => {
-  const blurb = props.blurbsArray;
+
+
   return (
 
-    <div className='activityBlurb'>
-      <p>{blurb.ActivityName}</p>
+    <div className='activityBlurb' style = {{color: props.color}}>
+      <p>{props.activityName}</p>
     </div>
 
   );

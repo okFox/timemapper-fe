@@ -106,4 +106,44 @@ const block = {
         } }
     ] };
   
-  
+    / const someActivities = {
+      //   activities: [
+      //     {
+      //       activityID: 100,
+      //       activityName: 'Wani Kani',
+      //       duration: 3,
+      //       color: 'rgba(255, 0, 0, 0.2)',
+      //       description: 'Complete Wani Kani levels.',
+      //       position: {
+      //         x: '', // or start end using the timeUnits
+      //         y: ''
+      //       } },
+      //     {
+      //       activityID: 200,
+      //       activityName: 'Glossika',
+      //       duration: 2,
+      //       color: 'rgba(0, 255, 0, 0.3)',
+      //       description: 'Listen to Glossika sentences',
+      //       position: {
+      //         x: '', // or start end using the timeUnits
+      //         y: ''
+      //       } },
+      //     {
+      //       activityID: 300,
+      //       activityName: 'Kanji',
+      //       duration: 1,
+      //       color: 'rgba(0, 0, 255, 0.3)',
+      //       description: 'Practice writing basic 100',
+      //       position: {
+      //         x: '', // or start end using the timeUnits
+      //         y: ''
+      //       } }
+      //   ]
+      // };
+      
+      
+        
+      
+      
+      
+      
