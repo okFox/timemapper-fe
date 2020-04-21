@@ -1,15 +1,14 @@
 import React from 'react';
 
-const miniActivity = (props) => {
+const MiniActivity = (props) => {
 
+  return ( 
 
-  return (
-
-    <div className='activityBlurb' style = {{color: props.color}}>
-      <p>{props.activityName}</p>
+    <div className='activityBlurb' style={ { backgroundColor: props.color } }>
+      <p>{props.name}</p>
     </div>
 
   );
 };
 
-export default miniActivity;
+export default MiniActivity;

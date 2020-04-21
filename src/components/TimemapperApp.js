@@ -25,7 +25,7 @@ function TimemapperApp() {
       .then(res => res.json())
       // .then(res => res.text())
       .then(res => setActivitiesState(res));
-  }, []);
+  },);
 
 
 
@@ -43,14 +43,15 @@ function TimemapperApp() {
         y: 10
       } };
 
-    fetch('/api/v1/activities', {
+    fetch('http://localhost:7890/api/v1/activities', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newActivity)
     })
-      .then(res => res.json());
+      .then(res => res.json())
+      .then(console.log('activity added'));
     //now fetch entire activities array, set to state,  and render to activities list
   };
 
@@ -62,9 +63,9 @@ function TimemapperApp() {
       </section>
 
       <section className={styles.activityListBox}>
-        {activitiesState.map(blurb => {
-          <MiniActivity key={blurb.activityName} activityName={blurb.activityName} color={blurb.color}/>;
-        })}
+        <h1>All Activities:</h1>
+        {activitiesState.map((blurb) => 
+          <MiniActivity key={blurb._id} name={blurb.activityName} color={blurb.color}/>)}
 
       </section>
 
@@ -72,7 +73,7 @@ function TimemapperApp() {
         <h1>{blockState.blockName}</h1>
         <div className={blockStyles.block}>
           {activitiesState.map((activity) => 
-            <Activity activity={activity} key={activity.activityId}  name={activity.activityName} description={activity.description} duration={activity.duration * blockState.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
+            <Activity activity={activity} key={activity._id}  name={activity.activityName} description={activity.description} duration={activity.duration * blockState.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
         </div>
       </section>
 
