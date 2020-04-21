@@ -1,17 +1,22 @@
 import React from 'react';
 import styles from './Activity.css';
-
-const activityName = {
-  name: 'Wani Kani',
-  duration: 3,
-  color: 'rgba'
-};
+import activityForm from './ActivityForm';
 
 
-function Activity() {
+
+function Activity(props) {
+  // const item = props.activity;
+  // console.log(item);
+
+  let actStyle =  { 
+    backgroundColor: props.color,
+    height: props.height + '%'
+  };
+
   return (
-    <div className={styles.activity}>
-      <h1>{activityName.name}</h1>
+    <div className={styles.activity} style={actStyle}>
+      <span><h1>{props.name}</h1><time>{props.duration} minutes</time></span>
+      <p>{props.description}</p>
     </div>
   );
 }

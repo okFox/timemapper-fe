@@ -1,6 +1,18 @@
+
+
 import React from 'react';
-import Activities from './Activities';
+import TimemapperApp from './TimemapperApp';
+
+import './App.css';
+
 
 export default function App() {
-  return <Activities />;
+
+  
+  return (
+    <>
+
+      <TimemapperApp />
+    </>
+  );
 }

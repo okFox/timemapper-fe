@@ -1,0 +1,35 @@
+.blockContainer {
+  display: inline-flexbox;
+  text-align:center;
+  margin: auto;
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+
+.block {
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  height: 650px;
+  width: 300px;
+
+  display: inline-flexbox;
+  text-align:center;
+  margin: auto;
+    h1 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: .9rem;
+    }
+    time {
+      font-weight: bold;
+      font-size: .8rem;
+      padding-bottom: 5px;
+    }
+
+}
+
