@@ -1,14 +1,14 @@
 import React from 'react';
 
-const miniActivity = (props) => {
-  const blurb = props.blurbsArray;
-  return (
+const MiniActivity = (props) => {
 
-    <div className='activityBlurb'>
-      <p>{blurb.ActivityName}</p>
+  return ( 
+
+    <div className='activityBlurb' style={ { backgroundColor: props.color } }>
+      <p>{props.name}</p>
     </div>
 
   );
 };
 
-export default miniActivity;
+export default MiniActivity;
