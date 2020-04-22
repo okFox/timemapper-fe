@@ -27,16 +27,19 @@ function TimemapperApp() {
       .then(res => setActivitiesState(res));
   },);
 
+  // const getColor = () => {
 
+  // };
 
   const handleActivityFormSubmit = (event) => {
     event.preventDefault();
+ 
+    const color = document.querySelector('button').style.backgroundColor;
     const formData = new FormData(event.target);
-
     const newActivity = {
       activityName: formData.get('activityName'),
       duration: formData.get('duration'),
-      color: 'rgba(255, 0, 0, 0.2)',
+      color: color,
       description: formData.get('description'),
       position: {
         x: 5,
@@ -56,11 +59,12 @@ function TimemapperApp() {
   };
 
 
+
   return (
     <div className={styles.grid}>
       <div>
         <section className={styles.formBox}>
-          <ActivityForm handleActivityFormSubmit={handleActivityFormSubmit}/>
+          <ActivityForm handleActivityFormSubmit={handleActivityFormSubmit} />
         </section>
 
         <section className={styles.activityListBox}>
@@ -73,7 +77,7 @@ function TimemapperApp() {
         <h1>{blockState.blockName}</h1>
         <div className={blockStyles.block}>
           {activitiesState.map((activity) => 
-            <Activity activity={activity} key={activity._id}  name={activity.activityName} description={activity.description} duration={activity.duration * blockState.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
+            <Activity activity={activity} key={activity._id}  name={activity.activityName} description={activity.description} duration={activity.duration} color={activity.color} height={(blockState.totalMin * activity.duration) / 100}/>)}
         </div>
       </section>
 

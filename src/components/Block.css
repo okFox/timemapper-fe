@@ -12,9 +12,8 @@
 .block {
   border: 2px solid rgb(23, 23, 23);
   border-radius: 5px;
-  height: 650px;
   width: 300px;
-
+  min-height: min-content;
   display: inline-flexbox;
   text-align:center;
   margin: auto;
