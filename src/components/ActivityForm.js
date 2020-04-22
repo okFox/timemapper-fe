@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import ColorPicker from './ColorPicker';
+import { GithubPicker } from 'react-color';
 import styles from './Activity.css';
 
 
 const activityForm = (props) => {
+  const [colorPick, setColorPick] = useState('');
+
+  const setColorState = (color) => {
+    setColorPick({ background: color.hex });
+  };
 
   return (
     <div className={styles.form}>
@@ -19,8 +24,10 @@ const activityForm = (props) => {
         <label>Duration in minutes:</label>
         <input type='number' id="dur" name='duration' min="0" max='120' step='15'></input>
         <label>Color:</label>
-        {<ColorPicker />}
-        <button id='submit' value='submit'>Create Activity</button>
+        <div style={{ margin: 'auto', paddingBottom: '10px' }} >
+          <GithubPicker onChangeComplete={setColorState}/>
+        </div>
+        <button id='submit' value='submit' style={{ background: colorPick.background }}>Create Activity</button>
       </form>
     </div>
   );

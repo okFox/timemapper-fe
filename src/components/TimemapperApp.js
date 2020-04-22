@@ -27,16 +27,19 @@ function TimemapperApp() {
       .then(res => setActivitiesState(res));
   },);
 
+  // const getColor = () => {
 
+  // };
 
   const handleActivityFormSubmit = (event) => {
     event.preventDefault();
+ 
+    const color = document.querySelector('button').style.backgroundColor;
     const formData = new FormData(event.target);
-
     const newActivity = {
       activityName: formData.get('activityName'),
       duration: formData.get('duration'),
-      color: 'rgba(255, 0, 0, 0.2)',
+      color: color,
       description: formData.get('description'),
       position: {
         x: 5,
@@ -56,11 +59,12 @@ function TimemapperApp() {
   };
 
 
+
   return (
     <div className={styles.grid}>
       <div>
         <section className={styles.formBox}>
-          <ActivityForm handleActivityFormSubmit={handleActivityFormSubmit}/>
+          <ActivityForm handleActivityFormSubmit={handleActivityFormSubmit} />
         </section>
 
         <section className={styles.activityListBox}>
