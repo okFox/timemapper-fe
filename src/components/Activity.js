@@ -10,7 +10,7 @@ function Activity(props) {
 
   let actStyle =  { 
     backgroundColor: props.color,
-    height: props.height + '%'
+    height: props.height * 6
   };
 
   return (
