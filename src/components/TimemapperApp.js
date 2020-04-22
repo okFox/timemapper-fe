@@ -77,7 +77,7 @@ function TimemapperApp() {
         <h1>{blockState.blockName}</h1>
         <div className={blockStyles.block}>
           {activitiesState.map((activity) => 
-            <Activity activity={activity} key={activity._id}  name={activity.activityName} description={activity.description} duration={activity.duration * blockState.timeUnitInMin} color={activity.color} height={activity.duration * 15 }/>)}
+            <Activity activity={activity} key={activity._id}  name={activity.activityName} description={activity.description} duration={activity.duration} color={activity.color} height={(blockState.totalMin * activity.duration) / 100}/>)}
         </div>
       </section>
 
