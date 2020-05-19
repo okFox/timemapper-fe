@@ -1,12 +1,8 @@
 import React from 'react';
 import styles from './Activity.css';
-import activityForm from './ActivityForm';
-
-
+import PropTypes from 'prop-types';
 
 function Activity(props) {
-  // const item = props.activity;
-  // console.log(item);
 
   let actStyle =  { 
     backgroundColor: props.color,
@@ -20,5 +16,13 @@ function Activity(props) {
     </div>
   );
 }
+
+Activity.propTypes = {
+  height: PropTypes.number,
+  color: PropTypes.string,
+  name: PropTypes.string,
+  duration: PropTypes.number,
+  description: PropTypes.string
+};
 
 export default Activity;

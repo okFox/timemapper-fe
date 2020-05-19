@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MiniActivity = (props) => {
 
@@ -10,5 +11,8 @@ const MiniActivity = (props) => {
 
   );
 };
-
+MiniActivity.propTypes = {
+  color: PropTypes.string,
+  name: PropTypes.string
+};
 export default MiniActivity;

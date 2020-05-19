@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { GithubPicker } from 'react-color';
 import styles from './Activity.css';
-
+import PropTypes from 'prop-types';
 
 const activityForm = (props) => {
   const [colorPick, setColorPick] = useState('');
@@ -16,7 +16,7 @@ const activityForm = (props) => {
       <form onSubmit={props.handleActivityFormSubmit}>
         
         <label> Activity Name:</label>
-        <input type='text' name='activityName' id='actname' placeholder='eg. Learn Piano'></input>
+        <input type='text' name='activityName' id='actname' placeholder='eg. Practice scales'></input>
 
         <label>Description:</label>
         <input type='textarea' name='description' id='actdesc'></input>
@@ -31,6 +31,10 @@ const activityForm = (props) => {
       </form>
     </div>
   );
+};
+
+activityForm.propTypes = {
+  handleActivityFormSubmit: PropTypes.func
 };
 
 export default activityForm;

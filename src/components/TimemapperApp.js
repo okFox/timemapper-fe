@@ -21,7 +21,7 @@ function TimemapperApp() {
   const [activitiesState, setActivitiesState] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:7890/api/v1/activities')
+    fetch('https://mytimemapper.herokuapp.com/api/v1/activities')
       .then(res => res.json())
       // .then(res => res.text())
       .then(res => setActivitiesState(res));
@@ -46,7 +46,7 @@ function TimemapperApp() {
         y: 10
       } };
 
-    fetch('http://localhost:7890/api/v1/activities', {
+    fetch('https://mytimemapper.herokuapp.com/api/v1/activities', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
