@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import request from 'superagent';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import ActivityForm from './ActivityForm';
 import Activity from './Activity';
 import styles from './TimemapperApp.css';
@@ -20,16 +23,33 @@ function TimemapperApp() {
   const [blockState, setBlockState] = useState(blockData);
   const [activitiesState, setActivitiesState] = useState([]);
 
-  useEffect(() => {
-    fetch('https://mytimemapper.herokuapp.com/api/v1/activities')
-      .then(res => res.json())
+  useEffect(() => { 
+    console.log('made it here');
+    request
+      .get('https://mytimemapper.herokuapp.com/api/v1/activities')
+      // .withCredentials()
+      // .then(res => res.json())
       // .then(res => res.text())
-      .then(res => setActivitiesState(res));
-  },);
+      .then(res => setActivitiesState(res.body));
+    console.log(activitiesState);
+  }, []);
 
-  // const getColor = () => {
 
-  // };
+  // useEffect(() => { 
+  //   console.log('made it here');
+  //   const fetchedData = async() => { 
+  //     const result = await request
+  //       .get('https://mytimemapper.herokuapp.com/api/v1/activities')
+  //     // .withCredentials()
+  //     .then(res => res.json())
+  //     // .then(res => res.text())
+      
+  //   await fetchedData();
+  //   await setActivitiesState(result);};
+  //   console.log(activitiesState);
+  // }, []);
+
+
 
   const handleActivityFormSubmit = (event) => {
     event.preventDefault();
@@ -46,16 +66,23 @@ function TimemapperApp() {
         y: 10
       } };
 
-    fetch('https://mytimemapper.herokuapp.com/api/v1/activities', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newActivity)
-    })
-      .then(res => res.json())
-      .then(console.log('activity added'));
-    //now fetch entire activities array, set to state,  and render to activities list
+    request
+      .post('https://mytimemapper.herokuapp.com/api/v1/activities')
+      .withCredentials()
+      .set('Content-Type', 'application/json')
+      .send(JSON.stringify(newActivity))
+      .then(res => res.json());
+
+    //   fetch('https://mytimemapper.herokuapp.com/api/v1/activities', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(newActivity)
+    //   })
+    //     .then(res => res.json())
+    //     .then(console.log('activity added'));
+    //   //now fetch entire activities array, set to state,  and render to activities list
   };
 
 
@@ -86,6 +113,7 @@ function TimemapperApp() {
       </section>
     </div>
   );
+
 }
 
 export default TimemapperApp;
