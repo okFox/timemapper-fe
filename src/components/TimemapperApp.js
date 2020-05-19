@@ -26,27 +26,9 @@ function TimemapperApp() {
   useEffect(() => { 
     request
       .get('https://mytimemapper.herokuapp.com/api/v1/activities')
-      // .withCredentials()
       .then(res => setActivitiesState(res.body));
 
   }, []);
-
-
-  // useEffect(() => { 
-  //   console.log('made it here');
-  //   const fetchedData = async() => { 
-  //     const result = await request
-  //       .get('https://mytimemapper.herokuapp.com/api/v1/activities')
-  //     // .withCredentials()
-  //     .then(res => res.json())
-  //     // .then(res => res.text())
-      
-  //   await fetchedData();
-  //   await setActivitiesState(result);};
-  //   console.log(activitiesState);
-  // }, []);
-
-
 
   const handleActivityFormSubmit = (event) => {
     event.preventDefault();
@@ -70,18 +52,6 @@ function TimemapperApp() {
       .set('Content-Type', 'application/json')
       .send(JSON.stringify(newActivity))
       .then(console.log('activity added'));
-      // .then(res => res.json());
-
-    //   fetch('https://mytimemapper.herokuapp.com/api/v1/activities', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(newActivity)
-    //   })
-    //     .then(res => res.json())
-    //     .then(console.log('activity added'));
-    //   //now fetch entire activities array, set to state,  and render to activities list
   };
 
 
