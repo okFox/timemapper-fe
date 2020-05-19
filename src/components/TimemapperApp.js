@@ -24,14 +24,11 @@ function TimemapperApp() {
   const [activitiesState, setActivitiesState] = useState([]);
 
   useEffect(() => { 
-    console.log('made it here');
     request
       .get('https://mytimemapper.herokuapp.com/api/v1/activities')
       // .withCredentials()
-      // .then(res => res.json())
-      // .then(res => res.text())
       .then(res => setActivitiesState(res.body));
-    console.log(activitiesState);
+
   }, []);
 
 
@@ -56,6 +53,7 @@ function TimemapperApp() {
  
     const color = document.querySelector('button').style.backgroundColor;
     const formData = new FormData(event.target);
+
     const newActivity = {
       activityName: formData.get('activityName'),
       duration: formData.get('duration'),
@@ -71,7 +69,8 @@ function TimemapperApp() {
       .withCredentials()
       .set('Content-Type', 'application/json')
       .send(JSON.stringify(newActivity))
-      .then(res => res.json());
+      .then(console.log('activity added'));
+      // .then(res => res.json());
 
     //   fetch('https://mytimemapper.herokuapp.com/api/v1/activities', {
     //     method: 'POST',
