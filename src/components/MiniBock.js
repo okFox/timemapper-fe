@@ -18,12 +18,3 @@ MiniBlock.propTypes = {
 export default MiniBlock;
 
 
-// const blockData = {
-
-//   userId: '1',
-//   blockName: 'Learn Japanese',
-//   timeUnitInMin: 15,
-//   hours: 2,
-//   totalMin: 120
-
-// };

@@ -7,6 +7,7 @@ import Activity from './Activity';
 import styles from './TimemapperApp.css';
 import blockStyles from './Block.css';
 import MiniActivity from './MiniActivity';
+import MiniBlock from './MiniBock';
 
 const blockData = {
 
