@@ -10,7 +10,7 @@ import MiniActivity from './MiniActivity';
 
 const blockData = {
 
-  userId: 'user1',
+  userId: '1',
   blockName: 'Learn Japanese',
   timeUnitInMin: 15,
   hours: 2,
@@ -63,16 +63,7 @@ function TimemapperApp() {
           <ActivityForm handleActivityFormSubmit={handleActivityFormSubmit} />
         </section>
 
-        <section className={styles.activityListBox}>
-          <h1>All Activities</h1>
-          {activitiesState.map((blurb) => 
-            <MiniActivity key={blurb._id} name={blurb.activityName} color={blurb.color}/>)}
-        </section>
-        
-        <section className={styles.blockListBox}>
-          <h1>My Blocks</h1>
-        </section>
-      
+
       </div>
       <section className={blockStyles.blockContainer}>
         <h1>{blockState.blockName}</h1>
@@ -80,6 +71,17 @@ function TimemapperApp() {
           {activitiesState.map((activity) => 
             <Activity activity={activity} key={activity._id}  name={activity.activityName} description={activity.description} duration={activity.duration} color={activity.color} height={(blockState.totalMin * activity.duration) / 100}/>)}
         </div>
+      </section>
+      
+
+      <section className={styles.activityListBox}>
+        <h1>All Activities</h1>
+        {activitiesState.map((blurb) => 
+          <MiniActivity key={blurb._id} name={blurb.activityName} color={blurb.color}/>)}
+      </section>
+
+      <section className={styles.blockListBox}>
+        <h1>My Blocks</h1>
       </section>
       
     </div>
