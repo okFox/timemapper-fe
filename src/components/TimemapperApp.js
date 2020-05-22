@@ -55,6 +55,8 @@ function TimemapperApp() {
       .then(console.log('activity added'));
   };
 
+  //handleBlockFormSubmit()
+
 
 
   return (
